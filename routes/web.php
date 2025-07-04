@@ -28,18 +28,23 @@ Route::post('/admin/verify', function () {
 })->name('admin.verify.post');
 
 // Route untuk admin (memerlukan verifikasi)
-Route::middleware(['adminverified'])->prefix('admin')->group(function (){
+Route::get('/tes-middleware', function () {
+    if (!class_exists(\App\Http\Middleware\AdminVerified::class)) {
+        dd('Class AdminVerified TIDAK TERDETEKSI!');
+    }
+    dd('Class AdminVerified TERDETEKSI!');
+});
+
+Route::middleware(['admin.verified'])->prefix('admin')->group(function () {
     Route::get('/divisi', [AdminDivisiController::class, 'index'])->name('admin.divisi.index');
     Route::get('/divisi/create', [AdminDivisiController::class, 'create'])->name('admin.divisi.create');
     Route::post('/divisi', [AdminDivisiController::class, 'store'])->name('admin.divisi.store');
     Route::get('/divisi/{divisi}/edit', [AdminDivisiController::class, 'edit'])->name('admin.divisi.edit');
     Route::put('/divisi/{divisi}', [AdminDivisiController::class, 'update'])->name('admin.divisi.update');
     Route::delete('/divisi/{divisi}', [AdminDivisiController::class, 'destroy'])->name('admin.divisi.destroy');
-    
     // Route untuk pengaturan acara
     Route::get('/pengaturan', [AdminPengaturanController::class, 'index'])->name('admin.pengaturan.index');
     Route::put('/pengaturan', [AdminPengaturanController::class, 'update'])->name('admin.pengaturan.update');
-
     Route::get('/peserta', [AdminDivisiController::class, 'peserta'])->name('admin.divisi.peserta');
     Route::get('/peserta/export', [AdminDivisiController::class, 'exportPeserta'])->name('admin.divisi.exportPeserta');
 });
