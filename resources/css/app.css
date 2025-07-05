@@ -739,3 +739,46 @@ p {
         max-width: 700px;
     }
 }
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+    body {
+        font-size: 0.8rem;
+    }
+    h1 {
+        font-size: 1.1rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    .container,
+    .card,
+    .navbar,
+    .card-body,
+    .card-header {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    .btn,
+    .btn-lg,
+    .btn-sm {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.7rem !important;
+    }
+    .card {
+        margin-bottom: 0.5rem !important;
+    }
+    .card-title {
+        font-size: 1rem !important;
+    }
+    .navbar-brand {
+        font-size: 1rem !important;
+    }
+    .nav-link {
+        font-size: 0.8rem !important;
+    }
+}
