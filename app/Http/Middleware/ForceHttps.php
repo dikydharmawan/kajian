@@ -6,6 +6,8 @@ use Closure;
 
 class ForceHttps
 {
+    protected $proxies = '*';
+
     public function handle($request, Closure $next)
     {
         if (!$request->secure() && app()->environment('production')) {
