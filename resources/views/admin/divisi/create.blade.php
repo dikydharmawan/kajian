@@ -36,7 +36,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.divisi.store') }}" method="POST">
+                    <form action="{{ secure_url('admin.divisi.store') }}" method="POST">
                         @csrf
                         <div class="mb-4">
                             <label for="nama" class="form-label">

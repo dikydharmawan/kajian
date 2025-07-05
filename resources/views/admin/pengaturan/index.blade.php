@@ -43,7 +43,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.pengaturan.update') }}" method="POST">
+                    <form action="{{ secure_url('admin.pengaturan.update') }}" method="POST">
                         @csrf
                         @method('PUT')
                         

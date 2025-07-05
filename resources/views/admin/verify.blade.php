@@ -36,7 +36,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.verify.post') }}" method="POST">
+                    <form action="{{ secure_url('admin.verify.post') }}" method="POST">
                         @csrf
                         <div class="mb-4">
                             <label for="password" class="form-label">
