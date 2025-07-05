@@ -113,7 +113,7 @@
                                 <p class="mb-0">Silakan hubungi admin untuk menambahkan divisi volunter.</p>
                             </div>
                         @else
-                            <form action="{{ secure_url('pendaftaran.store') }}" method="POST">
+                            <form action="{{ route('pendaftaran.store') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-3">

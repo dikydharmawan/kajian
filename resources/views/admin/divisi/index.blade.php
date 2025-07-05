@@ -85,7 +85,7 @@
                                                class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit me-1"></i>Edit
                                             </a>
-                                            <form action="{{ secure_url('admin.divisi.destroy', $divisi->id) }}" 
+                                            <form action="{{ route('admin.divisi.destroy', $divisi->id) }}" 
                                                   method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')

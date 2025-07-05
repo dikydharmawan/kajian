@@ -36,7 +36,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ secure_url('admin.divisi.update', $divisi->id) }}" method="POST">
+                    <form action="{{ route('admin.divisi.update', $divisi->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         

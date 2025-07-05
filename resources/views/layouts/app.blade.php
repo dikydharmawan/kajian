@@ -305,7 +305,7 @@
                         <li class="nav-item">
                         </li>
                         <li class="nav-item">
-                            <form method="POST" action="{{ secure_url('admin.logout') }}" class="d-inline">
+                            <form method="POST" action="{{ route('admin.logout') }}" class="d-inline">
                                 @csrf
                                 <button type="submit" class="btn btn-logout btn-sm">
                                     <i class="fas fa-sign-out-alt me-1"></i>Logout
