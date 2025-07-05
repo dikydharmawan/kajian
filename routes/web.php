@@ -11,6 +11,9 @@ Route::get('/', [WelcomeController::class, 'index']);
 // Route untuk pendaftaran (user)
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
 Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::get('/pendaftaran/terimakasih', function () {
+    return view('pendaftaran.terimakasih');
+})->name('pendaftaran.terimakasih');
 
 // Route untuk verifikasi admin
 Route::get('/admin/verify', function () {
