@@ -2,11 +2,12 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustProxies as Middleware;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class TrustProxies extends Middleware
 {
-    protected $proxies;
+    // Untuk shared hosting, gunakan null agar lebih aman
+    protected $proxies = null;
 
-    protected $headers = Request::HEADER_X_FORWARDED_ALL;
+    // Laravel 12 handles headers automatically, no need to specify $headers
 }
