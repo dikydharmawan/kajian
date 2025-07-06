@@ -25,6 +25,7 @@
                                     <th>No HP</th>
                                     <th>Divisi</th>
                                     <th>Waktu Daftar</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,10 +38,22 @@
                                         <td>{{ $pendaftaran->no_hp }}</td>
                                         <td>{{ $pendaftaran->divisi->nama ?? '-' }}</td>
                                         <td>{{ $pendaftaran->created_at->format('d/m/Y H:i') }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.peserta.edit', $pendaftaran->id) }}" class="btn btn-warning btn-sm me-1" title="Edit Peserta">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form action="{{ route('admin.peserta.destroy', $pendaftaran->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Hapus Peserta" onclick="return confirm('Yakin ingin menghapus peserta ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="text-center">Belum ada peserta yang mendaftar.</td>
+                                        <td colspan="8" class="text-center">Belum ada peserta yang mendaftar.</td>
                                     </tr>
                                 @endforelse
                             </tbody>

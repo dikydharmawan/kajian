@@ -50,6 +50,9 @@ Route::middleware(['admin.verified'])->prefix('admin')->group(function () {
     Route::put('/pengaturan', [AdminPengaturanController::class, 'update'])->name('admin.pengaturan.update');
     Route::get('/peserta', [AdminDivisiController::class, 'peserta'])->name('admin.divisi.peserta');
     Route::get('/peserta/export', [AdminDivisiController::class, 'exportPeserta'])->name('admin.divisi.exportPeserta');
+    Route::delete('/peserta/{pendaftaran}', [AdminDivisiController::class, 'destroyPeserta'])->name('admin.peserta.destroy');
+    Route::get('/peserta/{pendaftaran}/edit', [AdminDivisiController::class, 'editPeserta'])->name('admin.peserta.edit');
+    Route::put('/peserta/{pendaftaran}', [AdminDivisiController::class, 'updatePeserta'])->name('admin.peserta.update');
 });
 
 // Route untuk logout admin

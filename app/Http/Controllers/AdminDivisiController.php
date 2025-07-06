@@ -110,4 +110,32 @@ class AdminDivisiController extends Controller
         
         return response()->stream($callback, 200, $headers);
     }
+
+    public function destroyPeserta($id)
+    {
+        $peserta = Pendaftaran::findOrFail($id);
+        $peserta->delete();
+        return redirect()->route('admin.divisi.peserta')->with('success', 'Peserta berhasil dihapus!');
+    }
+
+    public function editPeserta($id)
+    {
+        $peserta = Pendaftaran::findOrFail($id);
+        $divisis = Divisi::all();
+        return view('admin.divisi.edit_peserta', compact('peserta', 'divisis'));
+    }
+
+    public function updatePeserta(Request $request, $id)
+    {
+        $peserta = Pendaftaran::findOrFail($id);
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'nim' => 'required|numeric|digits_between:6,20',
+            'prodi' => 'required|string|max:255',
+            'no_hp' => 'required|numeric|digits_between:8,15',
+            'divisi_id' => 'required|exists:divisis,id',
+        ]);
+        $peserta->update($request->all());
+        return redirect()->route('admin.divisi.peserta')->with('success', 'Data peserta berhasil diupdate!');
+    }
 }
