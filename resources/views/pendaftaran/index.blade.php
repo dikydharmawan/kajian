@@ -132,7 +132,7 @@
                                         <label for="nim" class="form-label">
                                             <i class="fas fa-id-card me-1"></i>NIM
                                         </label>
-                                        <input type="text" class="form-control @error('nim') is-invalid @enderror" 
+                                        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control @error('nim') is-invalid @enderror" 
                                                id="nim" name="nim" value="{{ old('nim') }}" 
                                                placeholder="Masukkan NIM" required>
                                         @error('nim')
@@ -158,7 +158,7 @@
                                         <label for="no_hp" class="form-label">
                                             <i class="fas fa-phone me-1"></i>Nomor HP
                                         </label>
-                                        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" 
+                                        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control @error('no_hp') is-invalid @enderror" 
                                                id="no_hp" name="no_hp" value="{{ old('no_hp') }}" 
                                                placeholder="Masukkan nomor HP" required>
                                         @error('no_hp')
