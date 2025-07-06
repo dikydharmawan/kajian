@@ -27,7 +27,7 @@ class PendaftaranController extends Controller
 
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nim' => 'required|numeric|digits_between:12',
+            'nim' => 'required|numeric|digits:12',
             'prodi' => 'required|string|max:255',
             'no_hp' => 'required|numeric|digits_between:8,15',
             'divisi_id' => 'required|exists:divisis,id',
