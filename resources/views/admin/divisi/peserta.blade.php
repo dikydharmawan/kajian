@@ -39,13 +39,13 @@
                                         <td>{{ $pendaftaran->divisi->nama ?? '-' }}</td>
                                         <td>{{ $pendaftaran->created_at->format('d/m/Y H:i') }}</td>
                                         <td>
-                                            <a href="{{ route('admin.peserta.edit', $pendaftaran->id) }}" class="btn btn-warning btn-sm me-1" title="Edit Peserta">
+                                            <a href="{{ route('admin.peserta.edit', $pendaftaran->id) }}" class="btn-action btn-action-edit me-1" title="Edit Peserta">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form action="{{ route('admin.peserta.destroy', $pendaftaran->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Hapus Peserta" onclick="return confirm('Yakin ingin menghapus peserta ini?')">
+                                                <button type="submit" class="btn-action btn-action-delete" title="Hapus Peserta" onclick="return confirm('Yakin ingin menghapus peserta ini?')">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
