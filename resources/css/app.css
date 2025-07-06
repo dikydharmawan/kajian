@@ -37,10 +37,18 @@ body {
 
 .container {
     width: 100%;
-    max-width: 100%;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    max-width: 1200px;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 }
 
 
@@ -84,6 +92,7 @@ a {
     box-shadow: 0 2px 20px rgba(22, 163, 74, 0.08);
     color: var(--text-light);
     padding: 0.25rem 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .navbar-brand {
@@ -102,10 +111,29 @@ a {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
     color: #bbf7d0;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .nav-link:hover {
     color: #22c55e;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #22c55e;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 
@@ -113,26 +141,34 @@ a {
 
 .card {
     border: none;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.08);
     backdrop-filter: blur(10px);
     background: #18181b;
     color: #f0fdf4;
     margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.15);
 }
 
 .card-header {
     background: #16a34a;
     color: #fff;
-    border-radius: 18px 18px 0 0 !important;
+    border-radius: 12px 12px 0 0 !important;
     border: none;
-    padding: 0.5rem;
+    padding: 0.4rem 0.75rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    font-size: 0.9rem;
 }
 
 .card-body {
-    padding: 0.75rem;
+    padding: 0.6rem 0.75rem;
 }
 
 
@@ -227,25 +263,110 @@ label {
 }
 
 
-/* ===== ALERTS ===== */
+/* ===== POPUP NOTIFICATIONS ===== */
 
-.alert {
-    border-radius: 10px;
-    border: none;
+.popup-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    transition: all 0.3s ease;
+    animation: slideInRight 0.5s ease-out;
+    transform-origin: top right;
 }
 
-.alert-success,
-.alert-info {
-    background: #bbf7d0;
-    color: #065f46;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
-.alert-danger,
-.alert-warning {
-    background: #fef9c3;
-    color: #b91c1c;
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%) scale(0.8);
+    }
+}
+
+.popup-notification.hide {
+    animation: slideOutRight 0.3s ease-in forwards;
+}
+
+.popup-header {
+    padding: 0.75rem 1rem 0.5rem;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-body {
+    padding: 0.5rem 1rem 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.popup-success {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border-left: 4px solid #bbf7d0;
+}
+
+.popup-info {
+    background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+    border-left: 4px solid #e0f2fe;
+}
+
+.popup-warning {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    border-left: 4px solid #fef3c7;
+}
+
+.popup-danger {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    border-left: 4px solid #fecaca;
+}
+
+
+/* Legacy alert support - hide them */
+
+.alert {
+    display: none !important;
 }
 
 
@@ -335,6 +456,12 @@ label {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #16a34a;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    color: #22c55e;
 }
 
 
@@ -342,10 +469,14 @@ label {
 
 a {
     color: #bbf7d0;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 a:hover {
     color: #22c55e;
+    text-decoration: underline;
+    transform: translateY(-1px);
 }
 
 
@@ -405,13 +536,15 @@ a:hover {
     font-weight: 600;
     border-radius: 20px;
     padding: 6px 18px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .navbar .btn-logout:hover,
 .navbar .btn-outline-light:hover {
     background: #16a34a !important;
     color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(22, 163, 74, 0.2);
 }
 
 
@@ -464,4 +597,62 @@ video {
     .card-header {
         padding: 1rem;
     }
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Apply animations to elements */
+
+.card,
+.feature-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.btn:hover {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    animation: bounce 0.6s ease-in-out;
 }

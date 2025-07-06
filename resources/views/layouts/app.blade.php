@@ -57,5 +57,132 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Popup Notification System -->
+    <script>
+        class PopupNotification {
+            constructor() {
+                this.container = this.createContainer();
+                this.notifications = [];
+            }
+
+            createContainer() {
+                const container = document.createElement('div');
+                container.id = 'popup-container';
+                container.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 9999;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                `;
+                document.body.appendChild(container);
+                return container;
+            }
+
+            show(message, type = 'info', duration = 5000) {
+                const notification = this.createNotification(message, type);
+                this.container.appendChild(notification);
+                this.notifications.push(notification);
+
+                // Auto remove after duration
+                setTimeout(() => {
+                    this.hide(notification);
+                }, duration);
+
+                return notification;
+            }
+
+            createNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `popup-notification popup-${type}`;
+                
+                const icon = this.getIcon(type);
+                const title = this.getTitle(type);
+                
+                notification.innerHTML = `
+                    <div class="popup-header">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="${icon}" style="font-size: 1.1rem;"></i>
+                            <strong style="font-size: 0.9rem;">${title}</strong>
+                        </div>
+                        <button class="popup-close" onclick="popupSystem.hide(this.parentElement.parentElement)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="popup-body">
+                        ${message}
+                    </div>
+                `;
+
+                return notification;
+            }
+
+            getIcon(type) {
+                const icons = {
+                    success: 'fas fa-check-circle',
+                    info: 'fas fa-info-circle',
+                    warning: 'fas fa-exclamation-triangle',
+                    danger: 'fas fa-times-circle'
+                };
+                return icons[type] || icons.info;
+            }
+
+            getTitle(type) {
+                const titles = {
+                    success: 'Berhasil',
+                    info: 'Informasi',
+                    warning: 'Peringatan',
+                    danger: 'Error'
+                };
+                return titles[type] || titles.info;
+            }
+
+            hide(notification) {
+                if (notification) {
+                    notification.classList.add('hide');
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.parentElement.removeChild(notification);
+                        }
+                        this.notifications = this.notifications.filter(n => n !== notification);
+                    }, 300);
+                }
+            }
+
+            hideAll() {
+                this.notifications.forEach(notification => {
+                    this.hide(notification);
+                });
+            }
+        }
+
+        // Initialize popup system
+        const popupSystem = new PopupNotification();
+
+        // Convert existing alerts to popups
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                const message = alert.textContent || alert.innerHTML;
+                let type = 'info';
+                
+                if (alert.classList.contains('alert-success')) type = 'success';
+                else if (alert.classList.contains('alert-danger')) type = 'danger';
+                else if (alert.classList.contains('alert-warning')) type = 'warning';
+                else if (alert.classList.contains('alert-info')) type = 'info';
+                
+                popupSystem.show(message, type);
+                alert.remove();
+            });
+        });
+
+        // Global function for showing popups
+        function showPopup(message, type = 'info', duration = 5000) {
+            return popupSystem.show(message, type, duration);
+        }
+    </script>
 </body>
 </html>
