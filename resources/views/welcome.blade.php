@@ -10,7 +10,7 @@
             <div class="col-lg-8">
                 <h1 class="display-4 fw-bold mb-3">
                     <i class="fas fa-mosque me-3"></i>
-                    {{ $pengaturan->nama_acara ?? 'Pengajian Akbar Poliwangi 2025' }}
+                    {{ $pengaturan->nama_acara ?? 'Kajian Akbar Poliwangi 2025' }}
                 </h1>
                 <p class="lead mb-4">
                     {{ $pengaturan->deskripsi ?? 'Bergabunglah sebagai volunter dalam acara pengajian akbar yang akan diselenggarakan di Politeknik Negeri Banyuwangi. Mari kita bersama-sama menyukseskan acara ini!' }}
