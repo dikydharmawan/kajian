@@ -82,16 +82,16 @@
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="{{ route('admin.divisi.edit', $divisi->id) }}" 
-                                               class="btn btn-warning btn-sm">
-                                                <i class="fas fa-edit me-1"></i>Edit
+                                               class="btn btn-warning btn-sm" title="Edit">
+                                                <i class="fas fa-edit"></i>
                                             </a>
                                             <form action="{{ route('admin.divisi.destroy', $divisi->id) }}" 
                                                   method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm" 
-                                                        onclick="return confirm('Yakin ingin menghapus divisi ini?')">
-                                                    <i class="fas fa-trash me-1"></i>Hapus
+                                                        onclick="return confirm('Yakin ingin menghapus divisi ini?')" title="Hapus">
+                                                    <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
                                         </div>
