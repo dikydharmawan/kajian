@@ -59,12 +59,12 @@
     <footer class="mt-5 py-4" style="background: linear-gradient(90deg, #16a34a 0%, #38bdf8 100%); color: #fff;">
         <div class="container text-center">
             <div class="mb-2" style="font-size:1.1rem; font-weight:600; letter-spacing:0.5px;">
-                Kontak Panitia (WhatsApp)
+                Kontak
             </div>
             <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3" style="font-size:1.05rem;">
-                <span><i class="fab fa-whatsapp me-1"></i> Diky: <a href="https://wa.me/6283847105847" target="_blank" style="color:#fff;text-decoration:underline;">0838-4710-5847</a></span>
-                <span><i class="fab fa-whatsapp me-1"></i> Hisom: <a href="https://wa.me/6285872672506" target="_blank" style="color:#fff;text-decoration:underline;">0858-7267-2506</a></span>
-                <span><i class="fab fa-instagram me-1"></i> Instagram: <a href="https://instagram.com/imam_poliwangi" target="_blank" style="color: #fff;text-decoration:underline">imam_poliwangi</a></span>
+                <span><i class="fab fa-whatsapp me-1"></i> Diky: <a href="https://wa.me/6283847105847" target="_blank" style="color:#000000;text-decoration:underline;">0838-4710-5847</a></span>
+                <span><i class="fab fa-whatsapp me-1"></i> Hisom: <a href="https://wa.me/6285872672506" target="_blank" style="color:#000000;text-decoration:underline;">0858-7267-2506</a></span>
+                <span><i class="fab fa-instagram me-1"></i> Instagram: <a href="https://instagram.com/imam_poliwangi" target="_blank" style="color: #000000;text-decoration:underline">imam_poliwangi</a></span>
             </div>
             <div class="mt-2" style="font-size:0.95rem; opacity:0.85;">&copy; 2025 Pengajian Akbar Poliwangi. All rights reserved.</div>
         </div>
