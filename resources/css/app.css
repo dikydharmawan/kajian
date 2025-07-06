@@ -804,14 +804,22 @@ input[type="number"] {
     font-weight: 600;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.7em;
     box-shadow: 0 2px 12px rgba(56, 189, 248, 0.10);
     transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    line-height: 1.2;
+    height: auto;
+    vertical-align: middle;
 }
 
 .btn-main i {
-    font-size: 1.15em;
+    font-size: 1.1em;
     margin-right: 0.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 .btn-main:hover,
