@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h2 class="mb-0"><i class="fas fa-users me-2"></i>Daftar Peserta Volunter</h2>
                 <a href="{{ route('admin.divisi.exportPeserta') }}" class="btn btn-success">
-                    <i class="fas fa-file-excel me-1"></i> Export Excel
+                    <i class="fas fa-file-excel me-1"></i> Export CSV
                 </a>
             </div>
             <div class="card">

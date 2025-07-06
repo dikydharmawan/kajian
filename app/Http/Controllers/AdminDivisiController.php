@@ -69,6 +69,45 @@ class AdminDivisiController extends Controller
 
     public function exportPeserta()
     {
-        // Implementasi ekspor excel akan dibuat setelah view dan route siap
+        $pendaftarans = Pendaftaran::with('divisi')->latest()->get();
+        
+        $filename = 'daftar_peserta_' . date('Y-m-d_H-i-s') . '.csv';
+        
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ];
+        
+        $callback = function() use ($pendaftarans) {
+            $file = fopen('php://output', 'w');
+            
+            // Header CSV
+            fputcsv($file, [
+                'No',
+                'Nama',
+                'NIM', 
+                'Program Studi',
+                'No HP',
+                'Divisi',
+                'Waktu Daftar'
+            ]);
+            
+            // Data
+            foreach ($pendaftarans as $index => $pendaftaran) {
+                fputcsv($file, [
+                    $index + 1,
+                    $pendaftaran->nama,
+                    $pendaftaran->nim,
+                    $pendaftaran->prodi,
+                    $pendaftaran->no_hp,
+                    $pendaftaran->divisi->nama ?? '-',
+                    $pendaftaran->created_at->format('d/m/Y H:i')
+                ]);
+            }
+            
+            fclose($file);
+        };
+        
+        return response()->stream($callback, 200, $headers);
     }
 }
