@@ -11,7 +11,7 @@
                 Terima Kasih!
             </h1>
             <p class="mb-4">Pendaftaran kamu telah berhasil.<br>Silakan gabung ke grup WhatsApp untuk info selanjutnya.</p>
-            <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" target="_blank" class="btn btn-success mb-3" style="font-size:1.1rem;">
+            <a href="https://chat.whatsapp.com/IddY7tpsTo8FdnDW9z8lNI?mode=ac_t" target="_blank" class="btn btn-success mb-3" style="font-size:1.1rem;">
                 <i class="fab fa-whatsapp"></i> Masuk Grup WhatsApp
             </a>
             <p class="text-muted" style="font-size:0.9rem;">Pastikan kamu bergabung agar tidak ketinggalan info penting.</p>
