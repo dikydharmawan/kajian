@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nim')->unique();
             $table->string('prodi');
-            $table->string('no_hp');
+            $table->string('no_hp')->unique();
             $table->foreignId('divisi_id')->constrained('divisis')->onDelete('cascade');
             $table->timestamps();
         });

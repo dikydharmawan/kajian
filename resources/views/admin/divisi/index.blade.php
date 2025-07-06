@@ -80,21 +80,16 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="{{ route('admin.divisi.edit', $divisi->id) }}" 
-                                               class="btn btn-warning btn-sm" title="Edit">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="{{ route('admin.divisi.destroy', $divisi->id) }}" 
-                                                  method="POST" class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" 
-                                                        onclick="return confirm('Yakin ingin menghapus divisi ini?')" title="Hapus">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
+                                        <a href="{{ route('admin.divisi.edit', $divisi->id) }}" class="btn-action btn-action-edit me-1" title="Edit Divisi">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('admin.divisi.destroy', $divisi->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-action btn-action-delete" title="Hapus Divisi" onclick="return confirm('Yakin ingin menghapus divisi ini?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

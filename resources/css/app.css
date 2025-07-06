@@ -881,61 +881,48 @@ input[type="number"] {
 /* ===== BUTTON AKSI BULAT DI TABEL ===== */
 
 .btn-action {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.2rem 0.4rem;
+    font-size: 1.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.10);
-    border: none;
-    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
-    margin-right: 0.3rem;
-    color: #fff !important;
+    cursor: pointer;
+    transition: transform 0.18s, opacity 0.18s, box-shadow 0.18s;
     outline: none;
-    position: relative;
+    margin-right: 0.2rem;
 }
 
 .btn-action:last-child {
     margin-right: 0;
 }
 
-.btn-action-edit {
-    background: #facc15;
-    color: #fff !important;
-}
-
-.btn-action-edit:hover,
-.btn-action-edit:focus {
-    background: #eab308;
-    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.18);
-    transform: scale(1.08);
-}
-
-.btn-action-delete {
-    background: #ef4444;
-    color: #fff !important;
-}
-
-.btn-action-delete:hover,
-.btn-action-delete:focus {
-    background: #dc2626;
-    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.18);
-    transform: scale(1.08);
-}
-
-.btn-action-edit i,
-.btn-action-delete i {
-    color: #fff !important;
-    transition: filter 0.2s;
+.btn-action-edit i {
+    color: #facc15 !important;
+    transition: filter 0.18s, box-shadow 0.18s, opacity 0.18s;
 }
 
 .btn-action-edit:hover i,
-.btn-action-edit:focus i,
+.btn-action-edit:focus i {
+    filter: brightness(0.9);
+    opacity: 0.8;
+    transform: scale(1.18);
+    box-shadow: 0 2px 8px rgba(250, 204, 21, 0.18);
+}
+
+.btn-action-delete i {
+    color: #ef4444 !important;
+    transition: filter 0.18s, box-shadow 0.18s, opacity 0.18s;
+}
+
 .btn-action-delete:hover i,
 .btn-action-delete:focus i {
-    filter: brightness(0.85);
+    filter: brightness(0.9);
+    opacity: 0.8;
+    transform: scale(1.18);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.18);
 }
 
 

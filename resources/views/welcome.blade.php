@@ -134,4 +134,44 @@
         </div>
     </div>
 </div>
+
+@if(isset($pendaftarans) && count($pendaftarans) > 0)
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5 class="mb-0"><i class="fas fa-users me-2"></i>Daftar Peserta Volunter yang Sudah Mendaftar</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>Prodi</th>
+                            <th>No HP</th>
+                            <th>Divisi</th>
+                            <th>Waktu Daftar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pendaftarans as $index => $pendaftaran)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $pendaftaran->nama }}</td>
+                            <td>{{ $pendaftaran->nim }}</td>
+                            <td>{{ $pendaftaran->prodi }}</td>
+                            <td>{{ $pendaftaran->no_hp }}</td>
+                            <td>{{ $pendaftaran->divisi->nama ?? '-' }}</td>
+                            <td>{{ $pendaftaran->created_at->format('d/m/Y H:i') }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection 
