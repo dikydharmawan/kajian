@@ -902,23 +902,25 @@ input[type="number"] {
 }
 
 .btn-action-edit {
-    background: linear-gradient(90deg, #16a34a 0%, #38bdf8 100%);
+    background: #facc15;
+    color: #fff !important;
 }
 
 .btn-action-edit:hover,
 .btn-action-edit:focus {
-    background: linear-gradient(90deg, #38bdf8 0%, #16a34a 100%);
-    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.18);
+    background: #eab308;
+    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.18);
     transform: scale(1.08);
 }
 
 .btn-action-delete {
-    background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+    background: #ef4444;
+    color: #fff !important;
 }
 
 .btn-action-delete:hover,
 .btn-action-delete:focus {
-    background: linear-gradient(90deg, #f87171 0%, #ef4444 100%);
+    background: #dc2626;
     box-shadow: 0 4px 16px rgba(239, 68, 68, 0.18);
     transform: scale(1.08);
 }
