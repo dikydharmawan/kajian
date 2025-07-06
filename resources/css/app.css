@@ -925,6 +925,19 @@ input[type="number"] {
     transform: scale(1.08);
 }
 
+.btn-action-edit i,
+.btn-action-delete i {
+    color: #fff !important;
+    transition: filter 0.2s;
+}
+
+.btn-action-edit:hover i,
+.btn-action-edit:focus i,
+.btn-action-delete:hover i,
+.btn-action-delete:focus i {
+    filter: brightness(0.85);
+}
+
 
 /* Tooltip sederhana */
 
